@@ -11,11 +11,6 @@ export const useWindowStore = defineStore('window', () => {
     height.value = window.innerHeight
   }
 
-  // Similar to the mouse store, the event listener for 'resize'
-  // would typically be added in App.vue or a global setup.
-  // if (typeof window !== 'undefined') {
-  //   window.addEventListener('resize', updateWindow)
-  // }
 
   return { width, height, updateWindow }
 })

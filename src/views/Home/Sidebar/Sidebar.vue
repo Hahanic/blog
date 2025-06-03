@@ -2,63 +2,75 @@
       <n-layout-sider
         bordered
         collapse-mode="width"
-        :collapsed-width="64"
-        :width="240"
-        :collapsed="collapsed"
+        :collapsed-width="collapsedWidth"
+        :width="width"
+        :collapsed="sidebarStore.isCollapsed"
         show-trigger
-        @collapse="collapsed = true"
-        @expand="collapsed = false"
+        @collapse="handleCollapse"
+        @expand="handleExpand"
         :native-scrollbar="false"
       >
         <n-menu
-          :collapsed="collapsed"
-          :collapsed-width="64"
+          :collapsed="sidebarStore.isCollapsed"
+          :collapsed-width="collapsedWidth"
           :collapsed-icon-size="22"
           :options="menuOptions"
-          :render-label="renderMenuLabel"
-          :render-icon="renderMenuIcon"
-          :expand-icon="expandIcon"
+          :indent="indent"
         />
       </n-layout-sider>
 </template>
 
 <script setup lang="ts">
-import { h } from 'vue' // 导入 Vue 的 h 函数，用于创建 VNode
+import { computed, h, type VNode, type Component } from 'vue' // 导入 Vue 的 h 函数，用于创建 VNode
 import type { MenuOption } from 'naive-ui'
 import { BookOpenTextIcon, ExternalLinkIcon, MessageCircleIcon } from 'lucide-vue-next'
+import { useWindowStore } from '@/stores/window'
+import { useSidebarStore } from '@/stores/sidebar.ts'
 
-const renderIcon = (icon: any) => { // icon 参数是 Vue 组件
+const windowStore = useWindowStore()
+const sidebarStore = useSidebarStore()
+
+const handleCollapse = sidebarStore.handleCollapse
+const handleExpand = sidebarStore.handleExpand
+
+const isMobile = computed(() => windowStore.width < 600)
+const collapsedWidth = computed(() => (windowStore.width < 600 ? 0 : 64))//折叠时的宽度
+const width = computed(() => (windowStore.width < 600 ? 180 : 240))//展开时的宽度
+const indent = computed(() => (windowStore.width < 600 ? 16 : 22))//控制下级菜单向右的缩进距离
+
+const renderIcon = (icon: Component): (() => VNode | null) => { // icon 参数是 Vue 组件
+  // if(isMobile.value) return () => null
   return () => h(icon)
 }
 
 const menuOptions: MenuOption[] = [
   {
-    label: '且听风吟',
+    label: '边狱公司',
     key: 'hear-the-wind-sing',
     href: 'https://baike.baidu.com/item/%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F/3199',
     icon: renderIcon(ExternalLinkIcon)
   },
   {
-    label: '1973年的弹珠玩具',
-    key: 'pinball-1973',
+    label: '废墟图书馆',
+    key: 'lor',
     icon: renderIcon(BookOpenTextIcon),
-    disabled: true,
+    disabled: false,
     children: [
       {
-        label: '鼠',
-        key: 'rat'
+        label: '安吉拉',
+        key: 'AN'
       }
     ]
   },
   {
-    label: '寻羊冒险记',
-    key: 'a-wild-sheep-chase',
-    disabled: true,
+    label: '脑叶公司',
+    key: 'Lobotomy',
+    disabled: false,
     icon: renderIcon(BookOpenTextIcon)
   },
   {
-    label: '舞，舞，舞',
-    key: 'dance-dance-dance',
+    label: '鸿璐',
+    key: 'HongLu',
     icon: renderIcon(MessageCircleIcon),
     children: [
       {
@@ -73,39 +85,39 @@ const menuOptions: MenuOption[] = [
 
           },
           {
-            label: '羊男',
-            key: 'sheep-man',
+            label: '贾丘',
+            key: 'jiaqiu',
             icon: renderIcon(ExternalLinkIcon)
 
           }
         ]
       },
       {
-        label: '饮品',
-        key: 'beverage',
+        label: '林黛玉',
+        key: 'daiyu',
         icon: renderIcon(ExternalLinkIcon),
 
         children: [
           {
-            label: '威士忌',
-            key: 'whisky',
+            label: '贾惜春',
+            key: 'xichun',
             icon: renderIcon(ExternalLinkIcon),
             href: 'https://baike.baidu.com/item/%E5%A8%81%E5%A3%AB%E5%BF%8C%E9%85%92/2959816?fromtitle=%E5%A8%81%E5%A3%AB%E5%BF%8C&fromid=573&fr=aladdin'
           }
         ]
       },
       {
-        label: '食物',
+        label: '家主竞选',
         key: 'food',
         children: [
           {
-            label: '三明治',
+            label: '仙人',
             key: 'sandwich'
           }
         ]
       },
       {
-        label: '过去增多，未来减少',
+        label: '贾母',
         key: 'the-past-increases-the-future-recedes'
       }
     ]

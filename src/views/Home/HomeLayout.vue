@@ -1,8 +1,8 @@
 <template>
 <n-config-provider :theme="themeStore.theme">
-  <n-layout style="height: 100vh">
+  <n-layout style="height: 100vh;">
     <n-layout-header style="height: 64px;display: flex; justify-content: space-between;align-items: center; padding: 24px" bordered>
-      <div>toggle侧边栏</div>
+      <div @click="sidebarStore.toggleCollapsed">toggle侧边栏</div>
       <div>不思观望</div>
       <div @click="themeStore.changeTheme">toggle主题</div>
     </n-layout-header>
@@ -32,13 +32,26 @@
 </template>
 
 <script setup lang="ts">
-import { type CSSProperties} from 'vue'
+import { onBeforeUnmount, onMounted, type CSSProperties} from 'vue'
 import Sidebar from './Sidebar/Sidebar.vue';
 import Footer from './Footer/Footer.vue';
 import { useThemeStore } from '@/stores/theme';
+import { useWindowStore } from '@/stores/window'
+import { useSidebarStore } from '@/stores/sidebar';
 
+const sidebarStore = useSidebarStore()
 const themeStore = useThemeStore()
+const windowStore = useWindowStore()
 
+onMounted(() => {
+  window.addEventListener('resize', windowStore.updateWindow)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', windowStore.updateWindow)
+})
+
+
+//主要样式
 const MainStyle: CSSProperties = {
   height: '100%',
   display: 'flex',
