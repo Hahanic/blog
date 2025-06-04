@@ -4,6 +4,5 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  /* 隐藏浏览器默认的主滚动条，让内部内容区域的滚动条生效 */
   overflow: hidden;
 }

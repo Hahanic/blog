@@ -21,11 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h, type VNode, type Component } from 'vue' // 导入 Vue 的 h 函数，用于创建 VNode
-import type { MenuOption } from 'naive-ui'
-import { BookOpenTextIcon, ExternalLinkIcon, MessageCircleIcon } from 'lucide-vue-next'
+import { computed, h, type Component } from 'vue'
+import { NIcon, type MenuOption } from 'naive-ui'
+import { HomeIcon, NotebookPenIcon, MessageSquareMoreIcon, ExternalLinkIcon, BookmarkXIcon } from 'lucide-vue-next'
 import { useWindowStore } from '@/stores/window'
 import { useSidebarStore } from '@/stores/sidebar.ts'
+import { RouterLink } from 'vue-router'
 
 const windowStore = useWindowStore()
 const sidebarStore = useSidebarStore()
@@ -33,45 +34,48 @@ const sidebarStore = useSidebarStore()
 const handleCollapse = sidebarStore.handleCollapse
 const handleExpand = sidebarStore.handleExpand
 
-const isMobile = computed(() => windowStore.width < 600)
 const collapsedWidth = computed(() => (windowStore.width < 600 ? 0 : 64))//折叠时的宽度
 const width = computed(() => (windowStore.width < 600 ? 180 : 240))//展开时的宽度
 const indent = computed(() => (windowStore.width < 600 ? 16 : 22))//控制下级菜单向右的缩进距离
 
-const renderIcon = (icon: Component): (() => VNode | null) => { // icon 参数是 Vue 组件
-  // if(isMobile.value) return () => null
-  return () => h(icon)
+function renderIcon(icon: Component) {
+  return () => h(NIcon, null, { default: () => h(icon) })
 }
 
 const menuOptions: MenuOption[] = [
   {
-    label: '边狱公司',
-    key: 'hear-the-wind-sing',
-    href: 'https://baike.baidu.com/item/%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F/3199',
-    icon: renderIcon(ExternalLinkIcon)
+    label: () => h(RouterLink, {to:{path:'/'}}, {default:() => '主页'}),
+    key: 'homepage',
+    icon: renderIcon(HomeIcon)
   },
   {
-    label: '废墟图书馆',
-    key: 'lor',
-    icon: renderIcon(BookOpenTextIcon),
+    label: '笔记',
+    key: 'notes',
+    icon: renderIcon(NotebookPenIcon),
     disabled: false,
     children: [
       {
-        label: '安吉拉',
-        key: 'AN'
+        label: () => h(RouterLink, {to:{path:'/notes/learning1'}}, {default:() => '学习1'}),
+        key: 'learning1'
       }
     ]
   },
   {
-    label: '脑叶公司',
-    key: 'Lobotomy',
+    label: '杂谈',
+    key: 'gossip',
     disabled: false,
-    icon: renderIcon(BookOpenTextIcon)
+    icon: renderIcon(MessageSquareMoreIcon),
+    children: [
+      {
+        label: '维吉尔',
+        key: 'V'
+      }
+    ]
   },
   {
-    label: '鸿璐',
-    key: 'HongLu',
-    icon: renderIcon(MessageCircleIcon),
+    label: '链接',
+    key: 'link',
+    icon: renderIcon(ExternalLinkIcon),
     children: [
       {
         type: 'group',
@@ -121,7 +125,19 @@ const menuOptions: MenuOption[] = [
         key: 'the-past-increases-the-future-recedes'
       }
     ]
-  }
+  },
+  {
+    label: '收藏',
+    key: 'collect',
+    disabled: false,
+    icon: renderIcon(BookmarkXIcon),
+      children: [
+      {
+        label: '代表',
+        key: '侦探'
+      }
+    ]
+  },
 ]
 </script>
 
