@@ -1,7 +1,9 @@
-import Note  from '@/contents/notes/index.vue'
+import { type DocumentRoute } from "@/router/interfaces";
 import { NotebookPenIcon } from 'lucide-vue-next'
 
-export const routes = {
+const Note = () => import('@/contents/notes/index.vue')
+
+export const routes: DocumentRoute = {
   path: 'notes',
   component: Note,
   name: 'notes',
@@ -13,7 +15,7 @@ export const routes = {
     {
       path: 'learning1',
       name: 'learning1',
-      title: 'learning1',
+      title: '学习1',
       component: () => import('@/contents/notes/learning1.vue')
     }
   ]

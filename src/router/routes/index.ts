@@ -1,7 +1,10 @@
+import { type DocumentRoute } from "../interfaces";
+
+import { routes as routesNotes } from '@/router/routes/notes/index'
 import Home from "@/contents/home/index.vue";
 import { HomeIcon } from "lucide-vue-next";
 
-export const routes = {
+export const routes: DocumentRoute = {
   path: '/',
   component: Home,
   name: 'home',
@@ -9,4 +12,5 @@ export const routes = {
   icon: HomeIcon,
   isSidebarHome: true,
   isConformitiesHidden: true,
+  children: [routesNotes]
 }

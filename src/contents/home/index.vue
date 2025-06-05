@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-
+console.log('主页')
 </script>
 
 <style scoped>
