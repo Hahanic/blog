@@ -22,6 +22,7 @@ import { File } from 'lucide-vue-next';
 
 const route = useRoute()
 const router = useRouter()
+
 const breadcrumbs = computed(() => {
   return getRoutePath(route.path, getRouteTree(routes)).map((item) => ({
     path: item.path,
@@ -29,11 +30,10 @@ const breadcrumbs = computed(() => {
     icon: item?.icon || File,
   }))
 })
-console.log(routes)
+
 const handleBreadcrumbClick = (path: string) => {
   router.push(path)
 }
-
 </script>
 
 <style scoped>

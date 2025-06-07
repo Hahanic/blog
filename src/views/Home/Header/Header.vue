@@ -1,14 +1,10 @@
 <template>
   <div class="flex justify-between items-center h-full w-full">
-    <div @click="sidebarStore.toggleCollapsed">
-      <n-icon size="28">
-        <Transition name="toggleT" mode="out-in">
-          <LucideRotate3d />
-        </Transition>
-      </n-icon>
-    </div>
-    <p class="font-mono text-3xl font-extrabold">不思观望</p>
-    <n-icon size="28" @click="themeStore.changeTheme">
+    <n-icon size="28"  @click="sidebarStore.toggleCollapsed" class="hover:scale-110 transition">
+        <LucideRotate3d />
+    </n-icon>
+    <p class="font-mono text-4xl font-extrabold">不思观望</p>
+    <n-icon size="28" @click="themeStore.changeTheme" class="hover:scale-110 transition hover:fouc">
       <Transition name="fade" mode="out-in">
         <SunIcon v-if="themeStore.isDarkTheme === false" class="theme-icon" />
         <MoonIcon v-else class="theme-icon" />

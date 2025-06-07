@@ -1,7 +1,7 @@
 <template>
   <RouterView />
   <div v-if="showNoteNavigation" class="flex flex-col items-center bg-transparent mx-auto max-w-[900px] pt-24 border-1">
-    note 导航页面////
+    gossip 导航页面////
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 
 const showNoteNavigation = computed(() => {
-  return route.path === '/notes';
+  return route.path === '/gossip';
 });
 </script>
 

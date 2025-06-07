@@ -9,10 +9,6 @@ const rootRouteTree = getRouteTree(documentRoutes);
 // 2. 将自定义路由树转换为 Vue Router 能够识别的格式
 const vueRouterRoutes = parseRoutes(rootRouteTree);
 
-console.log(rootRouteTree)
-console.log(documentRoutes)
-console.log(vueRouterRoutes)
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: vueRouterRoutes, // 将转换后的路由数组赋值给 routes 属性

@@ -5,7 +5,7 @@ export interface DocumentRoute {
   path: string;
   name: string;
   component: RouteComponent;
-  title?: string;
+  title: string;
   icon?: Component
   tags?: string[]
   description?: string

@@ -18,7 +18,7 @@
       </n-layout>
     </n-layout>
 
-    <n-layout-footer position="absolute" style="height: 64px" bordered>
+    <n-layout-footer position="absolute" style="bottom: 0" bordered>
       <Footer />
     </n-layout-footer>
 
