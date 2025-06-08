@@ -38,5 +38,6 @@ export const getRouteData = (
   routeTree: DocumentRouteTree,
 ) => {
   const routePath = getRoutePath(currentPath, routeTree)
+  console.log(routePath[routePath.length - 1])
   return routePath[routePath.length - 1]
 }

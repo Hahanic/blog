@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@tailwindcss/vite": "^4.1.8",
+    "highlight.js": "^11.11.1",
     "lucide-vue-next": "^0.511.0",
     "pinia": "^3.0.2",
     "tailwindcss": "^4.1.8",

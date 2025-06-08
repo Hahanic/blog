@@ -1,28 +1,30 @@
 <template>
-<n-config-provider :theme="themeStore.theme">
-  <n-layout style="height: 100vh;">
+<n-config-provider :theme="themeStore.theme" :hljs=hljs>
+  <n-message-provider>
+    <n-layout style="height: 100vh;">
 
-    <n-layout-header style="height: 64px; padding: 24px" bordered>
-      <Header />
-    </n-layout-header>
-    
-    <n-layout position="absolute" style="top: 64px; bottom: 64px" has-sider>
-      <Sidebar></Sidebar>
-      <n-layout :content-style="MainStyle">
-        <n-layout-header>
-          <BreadCrumbs />
-        </n-layout-header>
-        <n-layout :native-scrollbar="false">
-          <router-view />
+      <n-layout-header style="height: 64px; padding: 24px" bordered>
+        <Header />
+      </n-layout-header>
+      
+      <n-layout position="absolute" style="top: 64px; bottom: 64px" has-sider>
+        <Sidebar></Sidebar>
+        <n-layout :content-style="MainStyle">
+          <n-layout-header>
+            <BreadCrumbs />
+          </n-layout-header>
+          <n-layout :native-scrollbar="false">
+            <router-view />
+          </n-layout>
         </n-layout>
       </n-layout>
+
+      <n-layout-footer position="absolute" style="bottom: 0" bordered>
+        <Footer />
+      </n-layout-footer>
+
     </n-layout>
-
-    <n-layout-footer position="absolute" style="bottom: 0" bordered>
-      <Footer />
-    </n-layout-footer>
-
-  </n-layout>
+  </n-message-provider>
 </n-config-provider>
 </template>
 
@@ -34,6 +36,10 @@ import Footer from './views/Home/Footer/Footer.vue';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs.vue';
 import { useWindowStore } from '@/stores/window'
 import { useThemeStore } from '@/stores/theme';
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
+
+hljs.registerLanguage('javascript', javascript)
 
 const windowStore = useWindowStore()
 const themeStore = useThemeStore()

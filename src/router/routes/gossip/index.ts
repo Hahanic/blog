@@ -12,8 +12,8 @@ export const routes: DocumentRoute = {
   children: [
     {
       path: 'gossip1',
-      name: '为什么天空这么蓝1',
-      title: '杂谈1',
+      name: '传颂之物游玩感想',
+      title: '传颂之物游玩感想',
       component: () => import('@/contents/gossip/gossip1.vue')
     }
   ]

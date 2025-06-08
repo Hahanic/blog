@@ -5,6 +5,9 @@ import { createPinia } from 'pinia'
 import router from './router'
 import naive from "naive-ui"
 
+import 'highlight.js/lib/common'
+
+
 const app = createApp(App)
 const pinia = createPinia()
 

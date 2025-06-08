@@ -11,10 +11,10 @@ export const routes: DocumentRoute = {
   icon: NotebookPenIcon,
   children: [
     {
-      path: 'learning1',
-      name: '学习1',
-      title: '学习1',
-      component: () => import('@/contents/notes/learning1.vue')
+      path: 'hight_frequency_event',
+      name: '防抖与节流',
+      title: '防抖与节流',
+      component: () => import('@/contents/notes/H-frequency-event.vue')
     }
   ]
 }

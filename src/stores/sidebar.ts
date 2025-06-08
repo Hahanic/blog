@@ -11,12 +11,10 @@ export const useSidebarStore = defineStore('sidebar', () => {
 
   const handleCollapse = () => {
     isCollapsed.value = true
-    console.log('折叠')
   }
 
   const handleExpand = () => {
     isCollapsed.value = false
-    console.log('展开')
   }
 
   return { isCollapsed, toggleCollapsed, handleCollapse, handleExpand }
