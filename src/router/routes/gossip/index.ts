@@ -11,10 +11,13 @@ export const routes: DocumentRoute = {
   icon: MessageSquareMoreIcon,
   children: [
     {
-      path: 'gossip1',
+      path: 'Utawarerumono',
       name: '传颂之物游玩感想',
       title: '传颂之物游玩感想',
-      component: () => import('@/contents/gossip/gossip1.vue')
+      tags: ['游戏', '视觉小说'],
+      createDate: new Date(2025, 5, 1, 20, 46),
+      modifyDate: new Date(2025, 5, 1, 20, 46),
+      component: () => import('@/contents/gossip/Utawarerumono.vue')
     }
   ]
 }

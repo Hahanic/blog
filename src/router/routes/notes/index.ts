@@ -14,7 +14,10 @@ export const routes: DocumentRoute = {
       path: 'hight_frequency_event',
       name: '防抖与节流',
       title: '防抖与节流',
-      component: () => import('@/contents/notes/H-frequency-event.vue')
+      tags: ['前端', 'Javascript'],
+      createDate: new Date(2025, 5, 9, 20, 46),
+      modifyDate: new Date(2025, 5, 9, 20, 46),
+      component: () => import('@/contents/notes/HfrequencyEvent.vue')
     }
   ]
 }
