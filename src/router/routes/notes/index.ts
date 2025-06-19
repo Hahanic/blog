@@ -18,6 +18,15 @@ export const routes: DocumentRoute = {
       createDate: new Date(2025, 5, 9, 20, 46),
       modifyDate: new Date(2025, 5, 9, 20, 46),
       component: () => import('@/contents/notes/HfrequencyEvent.vue')
+    },
+    {
+      path: 'systematic_learning_of_vite',
+      name: '系统学习Vite',
+      title: '系统学习Vite',
+      tags: ['前端', '打包工具'],
+      createDate: new Date(2025, 5, 13, 23, 2),
+      modifyDate: new Date(2025, 5, 13, 23, 2),
+      component: () => import('@/contents/notes/Vite.vue')
     }
   ]
 }

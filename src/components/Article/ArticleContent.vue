@@ -14,7 +14,6 @@
     <div class=" pt-4">
       <slot></slot>
     </div>
-
 </div>
 </template>
 

@@ -39,7 +39,7 @@
       <n-space>
         <n-tag>月亮计划</n-tag>
         <n-tag>mili</n-tag>
-        <n-tag>怪物猎人世界</n-tag>
+        <n-tag>怪物猎人</n-tag>
         <n-tag>魔法使之夜</n-tag>
         <n-tag>水仙</n-tag>
         <n-tag>传颂之物</n-tag>
