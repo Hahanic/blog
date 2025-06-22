@@ -1,6 +1,7 @@
 <template>
   <ArticleContent>
     <h1>React + Typescript</h1>
+    <p>非常简陋，凑合着学react......</p>
   </ArticleContent>
 </template>
 

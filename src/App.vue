@@ -7,7 +7,7 @@
         <Header />
       </n-layout-header>
       
-      <n-layout position="absolute" style="top: 64px; bottom: 64px" has-sider>
+      <n-layout position="absolute" style="top: 64px; bottom: 64px;height: calc(100% - 128px);" has-sider>
         <Sidebar></Sidebar>
         <n-layout :content-style="MainStyle">
           <n-layout-header>
@@ -19,7 +19,7 @@
         </n-layout>
       </n-layout>
 
-      <n-layout-footer position="absolute" style="bottom: 0" bordered>
+      <n-layout-footer position="absolute" style="bottom: 0;" bordered>
         <Footer />
       </n-layout-footer>
 

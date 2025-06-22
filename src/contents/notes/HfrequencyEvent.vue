@@ -5,7 +5,7 @@
     <ArticleCode :code="debonceCode.code" :language="debonceCode.language" />
 
     <n-h2 class="article-2" prefix="bar">1.2 甚至可以用css实现防抖</n-h2>
-    <n-text>事件停止触发一定时间后才会执行回调，常用于搜索框实时搜索和表单验证等场景</n-text>
+    <n-text>怎么写来着，我也忘了，自己百度去吧哈哈哈哈哈(...)</n-text>
     
     <n-h1 class="article-1">2. Throttle节流</n-h1>
     <n-h2 class="article-2" prefix="bar">2.1 在规定时间内无论事件触发多少次，都只执行一次回调，常用于页面滚动等高频事件</n-h2>

@@ -42,6 +42,7 @@
     <n-h1 class="article-1">5. 环境变量</n-h1>
     <n-h2 class="article-2" prefix="bar">5.1 环境变量</n-h2>
     <p><n-text code>import.meta.env</n-text></p>
+    <p>wc越写越乱，越想越混乱....开摆，这种事情留到暑假(大概</p>
     
 
   </ArticleContent>

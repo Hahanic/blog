@@ -1,6 +1,6 @@
 <template>
   <ArticleContent>
-    <h1>还没想好</h1>
+    <h1>快通关了(到时候再说...逃</h1>
   </ArticleContent>
 </template>
 
